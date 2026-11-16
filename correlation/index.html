@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>相关分析 · 课堂互动演示</title><link rel="stylesheet" href="style.css"></head><body>
+<header><h1>相关分析 · 课堂互动演示</h1></header>
+<nav><button class="on" data-page="class">① 课堂示例</button><button data-page="sim">② 模拟数据</button></nav>
+<main>
+<section class="on" id="class">
+<h2>研究示例：大学生体育锻炼与抑郁情绪</h2>
+<div class="controls"><span class="seg" id="methods"><button class="on" data-mode="pearson">Pearson</button><button data-mode="spearman">Spearman</button><button data-mode="point">点二列相关</button><button data-mode="pair">两两相关</button></span><label><input checked="" id="classFitLine" type="checkbox"/>显示拟合线</label></div>
+<div class="row" id="single"><div class="grow"><div id="mainPlot"></div></div><div class="side"><div class="box" id="mainStats"></div><div class="box" id="mainTeaching" style="display:none"></div></div></div>
+<div class="hidden" id="pair"><div class="box"><h3>三个变量的 Pearson 两两相关</h3><div id="pairTable"></div></div><div class="pair-grid" id="pairPlots"><div class="mini"><h3>锻炼 × 抑郁</h3><div id="pair1"></div></div><div class="mini"><h3>手机使用 × 抑郁</h3><div id="pair2"></div></div><div class="mini"><h3>锻炼 × 手机使用</h3><div id="pair3"></div></div></div></div>
+</section>
+<section id="sim"><h2>改变相关系数 r，观察数据如何变化</h2>
+<div class="sim-panel"><div class="slider"><span>样本相关系数 r</span><input id="wantR" max="0.95" min="-0.95" step="0.05" type="range" value="-0.50"/><output id="wantRV"></output></div><div class="slider"><span>被试数量 n</span><input id="simN" max="200" min="10" step="10" type="range" value="80"/><output id="simNV"></output></div><div class="slider"><span>换一批散点（随机种子）</span><input id="seed" max="99" min="1" step="1" type="range" value="1"/><output id="seedV"></output></div><div class="controls"><button class="action secondary" id="reroll">重新抽样</button><label><input id="fitLine" type="checkbox"/>显示拟合线</label></div></div>
+<div class="row"><div class="grow" id="simPlot"></div><div class="side"><div class="box" id="simStats"></div></div></div>
+</section>
+</main><script src="data.js"></script>
+<script src="app.js"></script></body></html>
