@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多元回归与偏相关</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="student">
+<header>
+  <h1>多元线性回归与偏相关</h1>
+  <p>数据：课堂数据 mood_sleep.csv（120 名大学生）</p>
+</header>
+<nav id="nav">
+  <button data-s="s1" class="on">1 偏相关</button>
+  <button data-s="s2">2 多元回归与独特贡献</button>
+  <button data-s="s3">3 多重共线性</button>
+  <button data-s="s5" class="t-only">核对表</button>
+</nav>
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1" class="on">
+  <h2>1. 偏相关：控制睡眠之后，手机使用和抑郁还相关吗？</h2>
+  <div class="ctrl"><span class="seg" id="s1mode"><button data-v="class" class="on">课堂数据</button><button data-v="sim">模拟数据</button></span></div>
+  <div class="ctrl" id="s1ctrlClass">
+    控制变量：
+    <span class="seg" id="s1cov"><button data-v="none">不控制</button><button data-v="psqi" class="on">控制睡眠（psqi）</button><button data-v="both">控制睡眠和锻炼</button></span>
+  </div>
+  <div id="s1ctrlSim" style="display:none">
+    <div class="slider"><span class="lab">手机使用 → 睡眠问题（第三变量）</span><input type="range" id="s1a" min="0" max="0.9" step="0.05" value="0.5"><output id="s1aV"></output></div>
+    <div class="slider"><span class="lab">手机使用 → 抑郁（直接作用）</span><input type="range" id="s1c" min="-0.4" max="0.4" step="0.05" value="0"><output id="s1cV"></output></div>
+    <div class="slider"><span class="lab">换一批被试（随机种子）</span><input type="range" id="s1seed" min="1" max="50" step="1" value="1"><output id="s1seedV"></output></div>
+    <div class="note">模拟 120 名被试；睡眠问题对抑郁的作用固定。模拟时只控制睡眠一个变量。</div>
+  </div>
+  <div class="row">
+    <div class="grow"><div class="row">
+      <div class="grow" id="s1plotA"></div><div class="grow" id="s1plotB"></div>
+    </div></div>
+  </div>
+  <div class="box stats" id="s1stats"></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2>2. 多元回归与独特贡献</h2>
+  <h3>A. 课堂数据：选择放进回归的自变量</h3>
+  <div class="ctrl" id="s2checks">
+    <label><input type="checkbox" value="exercise" checked> 锻炼（exercise）</label>
+    <label><input type="checkbox" value="screen_time" checked> 手机使用（screen_time）</label>
+    <label><input type="checkbox" value="psqi" checked> 睡眠问题（psqi）</label>
+  </div>
+  <div class="row">
+    <div class="grow">
+      <div id="s2table"></div>
+      <div id="s2bar"></div>
+    </div>
+  </div>
+  <h3>B. 两个自变量：只用三个相关系数就能算出 R² 的拆分</h3>
+  <div class="ctrl">预设情境：<select id="s2preset"></select></div>
+  <div class="slider"><span class="lab">X1 与 Y 的相关 r1y</span><input type="range" id="r1y" min="-0.9" max="0.9" step="0.01"><output id="r1yV"></output></div>
+  <div class="slider"><span class="lab">X2 与 Y 的相关 r2y</span><input type="range" id="r2y" min="-0.9" max="0.9" step="0.01"><output id="r2yV"></output></div>
+  <div class="slider"><span class="lab">X1 与 X2 的相关 r12</span><input type="range" id="r12" min="-0.9" max="0.9" step="0.01"><output id="r12V"></output></div>
+  <div class="row">
+    <div class="grow" id="s2Bbar"></div>
+    <div class="side" id="s2Bbeta"></div>
+  </div>
+  <div class="box stats" id="s2Bstats"></div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2>3. 多重共线性：自变量越相关，系数越不稳定</h2>
+  <div class="box stats" id="s3class"></div>
+  <h3>模拟：两个自变量对 Y 的真实作用都是 0.4；每次 60 名被试，重复 400 次</h3>
+  <div class="slider"><span class="lab">X1 与 X2 的相关</span><input type="range" id="s3r" min="0" max="0.95" step="0.05" value="0"><output id="s3rV"></output></div>
+  <div class="row"><div class="grow" id="s3hist"></div><div class="grow" id="s3scat"></div></div>
+  <div class="box stats" id="s3stats"></div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2>核对表</h2>
+  <h3>本页由课堂数据算出的数字 vs 课件第三章</h3>
+  <div id="s5table"></div>
+  <h3>网页（JavaScript）计算与 Python pingouin 的逐项对比</h3>
+  <div id="s5valid"></div>
+</section>
+</main>
+<script src="data.js"></script>
+<script src="statistics.js"></script>
+<script src="simulation.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
