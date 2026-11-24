@@ -4,13 +4,97 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>心理统计课堂互动</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --ink: #0f172a;
+      --line: #e2e8f0;
+      --card: #fff;
+      --blue: #1d4ed8;
+      --blue-line: #bfdbfe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    header h1 {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 5rem;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    a {
+      display: flex;
+      align-items: flex-end;
+      min-height: 11rem;
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--card);
+      color: inherit;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.4;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+    a:hover,
+    a:focus-visible {
+      color: var(--blue);
+      border-color: var(--blue-line);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.08);
+      outline: none;
+    }
+    @media (max-width: 800px) {
+      ul { grid-template-columns: 1fr; }
+      main { padding-top: 2.5rem; }
+    }
+  </style>
 </head>
-<body style="max-width: 36rem; margin: 4rem auto; padding: 0 1.25rem; font: 1.125rem/1.8 system-ui, sans-serif">
-  <h1>心理统计课堂互动</h1>
-  <ul>
-    <li><a href="regression/index.html">一元线性回归</a></li>
-    <li><a href="correlation/index.html">相关分析</a></li>
-    <li><a href="multiple/index.html">多元回归与偏相关</a></li>
-  </ul>
+<body>
+  <header>
+    <h1>心理统计课堂互动</h1>
+  </header>
+  <main>
+    <ul>
+      <li><a href="regression/index.html">一元线性回归</a></li>
+      <li><a href="correlation/index.html">相关分析</a></li>
+      <li><a href="multiple/index.html">多元回归与偏相关</a></li>
+    </ul>
+  </main>
 </body>
 </html>
