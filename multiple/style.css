@@ -1,27 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&display=swap");
   :root {
     --cobalt: #0047AB; --crimson: #C8102E; --tangerine: #FF6B1A; --violet: #6A00F4;
-    --aqua: #00A99D; --grey: #737373; --ink: #1a1a1a; --muted: #555; --line: #d9d9d9; --bg: #ffffff; --panel: #f6f6f6;
+    --aqua: #00A99D; --grey: #737373; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --bg: #f8fafc; --panel: #fff;
+    --accent: #1d4ed8;
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink);
-    font-family: "STZhongsong", "华文中宋", "Songti SC", "SimSun", "Noto Serif CJK SC", serif; font-size: 20px; line-height: 1.55; }
+    font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; font-size: 20px; line-height: 1.6; }
   header { padding: 18px 28px 6px; }
-  header h1 { margin: 0; font-size: 32px; font-weight: normal; }
+  header h1 { margin: 0; font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
   header p { margin: 4px 0 0; color: var(--muted); font-size: 17px; }
-  nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 28px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 5; }
-  nav button { font: inherit; font-size: 19px; padding: 8px 16px; border: 1px solid var(--line); background: #fff; border-radius: 6px; cursor: pointer; }
-  nav button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 28px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(255,255,255,.88); backdrop-filter: blur(12px); z-index: 5; }
+  nav button { font: inherit; font-size: 19px; padding: 8px 16px; border: 1px solid var(--line); background: #fff; border-radius: 0.75rem; cursor: pointer; }
+  nav button.on { background: #eff6ff; color: var(--accent); border-color: #bfdbfe; }
   main { padding: 18px 28px 40px; max-width: 1400px; }
   section { display: none; }
   section.on { display: block; }
-  h2 { font-size: 27px; font-weight: normal; margin: 6px 0 12px; }
-  h3 { font-size: 22px; font-weight: normal; margin: 18px 0 8px; }
+  h2 { font-size: 27px; font-weight: 600; margin: 6px 0 12px; }
+  h3 { font-size: 22px; font-weight: 600; margin: 18px 0 8px; }
   .row { display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start; }
   .grow { flex: 1 1 520px; min-width: 0; }
   .side { flex: 0 1 400px; }
-  .box { background: var(--panel); border-radius: 8px; padding: 14px 18px; }
+  .box { background: #fff; border: 1px solid var(--line); border-radius: 1rem; padding: 14px 18px; }
   .stats div { margin: 4px 0; font-size: 21px; }
-  .num { font-family: Consolas, "Courier New", monospace; font-size: 21px; }
+  .num { font-family: inherit; font-size: 21px; }
   .hl { color: var(--crimson); }
   .note { color: var(--muted); font-size: 17px; }
   .ctrl { margin: 10px 0; }
@@ -29,10 +31,10 @@
   .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
   .seg button { font: inherit; font-size: 18px; padding: 6px 14px; border: 0; background: #fff; cursor: pointer; border-right: 1px solid var(--line); }
   .seg button:last-child { border-right: 0; }
-  .seg button.on { background: var(--cobalt); color: #fff; }
+  .seg button.on { background: #eff6ff; color: var(--accent); }
   .slider { display: grid; grid-template-columns: 300px 1fr 70px; align-items: center; gap: 10px; margin: 8px 0; font-size: 18px; }
   .slider input { width: 100%; accent-color: var(--cobalt); }
-  .slider output { font-family: Consolas, monospace; font-size: 19px; }
+  .slider output { font-family: inherit; font-size: 19px; }
   select { font: inherit; font-size: 18px; padding: 4px 8px; }
   table { border-collapse: collapse; font-size: 18px; }
   th, td { padding: 6px 12px; border-bottom: 1px solid var(--line); text-align: right; }
@@ -40,7 +42,7 @@
   th { font-weight: normal; color: var(--muted); }
   .bigbtn { font: inherit; font-size: 19px; padding: 8px 18px; border-radius: 6px; border: 0; cursor: pointer; color: #fff; }
   svg { width: 100%; height: auto; display: block; }
-  svg text { font-family: "STZhongsong", "华文中宋", "Songti SC", "SimSun", serif; }
+  svg text { font-family: "Noto Serif SC", "Songti SC", "STSong", serif; }
   .ok { color: var(--aqua); }
   .bad { color: var(--crimson); }
   body.student .t-only { display: none !important; }
