@@ -85,17 +85,6 @@ function updateDiag() {
   plotRF(data);
   plotQQ(data);
 
-  const hints = {
-    normal: '随机分布在 0 附近',
-    curve: '注意弯曲趋势',
-    funnel: '注意散布宽度变化',
-    skew: '注意残差的分布形状',
-    tail: '注意离群残差',
-  };
-  $('rfHint').textContent = diagMode === 'real'
-    ? '观察有无系统性形态'
-    : hints[kind];
-
   $('swResult').innerHTML = '';
   $('swResult').classList.add('invisible');
 }
